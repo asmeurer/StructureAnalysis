@@ -43,6 +43,7 @@
 #include "stat_tool/curves.h"
 #include "stat_tool/distribution.h"
 
+#include "base.h"
 
 namespace sequence_analysis {
 
@@ -97,7 +98,7 @@ namespace sequence_analysis {
 
   /// \brief Length-biased distribution
 
-  class LengthBias : public stat_tool::DiscreteParametric {
+  class SEQUENCE_ANALYSIS_API LengthBias : public stat_tool::DiscreteParametric {
 
   public :
 
@@ -133,7 +134,7 @@ namespace sequence_analysis {
 
   /// \brief Number of events distribution
 
-  class NbEvent : public stat_tool::DiscreteParametric {
+  class SEQUENCE_ANALYSIS_API NbEvent : public stat_tool::DiscreteParametric {
 
   public :
 
@@ -161,7 +162,7 @@ namespace sequence_analysis {
 
   /// \brief Renewal process
 
-  class Renewal : public stat_tool::StatInterface {
+  class SEQUENCE_ANALYSIS_API Renewal : public stat_tool::StatInterface {
 
     friend class RenewalIterator;
     friend class TimeEvents;
@@ -273,7 +274,7 @@ namespace sequence_analysis {
 
   /// \brief Renewal process iterator for asynchronous simulation
 
-  class RenewalIterator {
+  class SEQUENCE_ANALYSIS_API RenewalIterator {
 
   private :
 
@@ -307,7 +308,7 @@ namespace sequence_analysis {
 
   /// \brief Triplets {observation period, number of events, frequency}
 
-  class TimeEvents : public stat_tool::StatInterface {
+  class SEQUENCE_ANALYSIS_API TimeEvents : public stat_tool::StatInterface {
 
     friend class stat_tool::FrequencyDistribution;
     friend class Renewal;
@@ -409,7 +410,7 @@ namespace sequence_analysis {
 
   /// \brief Data structure corresponding to a renewal process
 
-  class RenewalData : public TimeEvents {
+  class SEQUENCE_ANALYSIS_API RenewalData : public TimeEvents {
 
     friend class Renewal;
     friend class Sequences;

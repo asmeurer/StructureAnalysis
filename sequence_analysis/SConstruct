@@ -1,24 +1,15 @@
 # -*-python-*-
 
-from openalea.sconsx import config, environ
 import os
-pj = os.path.join
-ALEASolution = config.ALEASolution
 
-options = Variables(['../options.py', 'options.py'], ARGUMENTS)
-options.Add(BoolVariable('with_efence', 'build tests with efence library', 0))
-options.Add(BoolVariable('DEBUG', 'my debug', 0))
+env = Environment(tools = ['toolchain'])
 
-tools = ['boost_python', 'vplants.stat_tool'] #'qt4', 'vplants.tool', 'install',
+# env.AppendUnique(LIBS = ['stat_tool'])
+env.AppendUnique(CPPDEFINES=['MESSAGE'])
 
-env = ALEASolution(options, tools)
-env.AppendUnique(CXXFLAGS=['-x', 'c++', '-std=c++0x'])
+VariantDir(os.path.join('build', 'src'), 'src')
 
-# Build stage
-prefix = env['build_prefix']
-SConscript(pj(prefix,"src/cpp/SConscript"),
-           exports='env')
-SConscript(pj(prefix,"src/wrapper/SConscript"),
-           exports='env')
+SConscript(os.path.join('build', 'src', 'cpp', 'SConscript'), exports="env")
+SConscript(os.path.join('build', 'src', 'py', 'wrapper', 'SConscript'), exports="env")
 
-Default("build")
+Default("install")

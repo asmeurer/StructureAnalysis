@@ -66,7 +66,7 @@ namespace sequence_analysis {
 
   /// \brief hidden variable-order Markov chain
 
-  class HiddenVariableOrderMarkov : public VariableOrderMarkov {
+  class SEQUENCE_ANALYSIS_API HiddenVariableOrderMarkov : public VariableOrderMarkov {
 
     friend class MarkovianSequences;
 

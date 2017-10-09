@@ -40,6 +40,7 @@
 #define SEQUENCE_LABEL_H
 
 
+#include "base.h"
 
 namespace sequence_analysis {
 

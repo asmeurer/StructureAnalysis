@@ -1,0 +1,27 @@
+package:
+  name: python-sequence_analysis
+  version: "1.0.0"
+
+source:
+  path: ../../..
+
+build:
+  number: 0
+
+about:
+  home:  http://openalea.gforge.inria.fr/doc/vplants/sequence/doc/html/contents.html
+  license: CeCILL-C
+
+requirements:
+  build:
+    - libdev
+    - python-dev
+    - libboost
+    - libsequence_analysis
+    - python
+  run:
+    - librun
+    - libboost
+    - libsequence_analysis
+    - python
+    - python-stat_tool

@@ -45,7 +45,7 @@
 
 namespace Stat_trees {
   class MarkovOutTree;
-  MarkovOutTree* markov_out_tree_parsing(StatError& error,
+  SEQUENCE_ANALYSIS_API MarkovOutTree* markov_out_tree_parsing(StatError& error,
                                          std::ifstream &in_file,
                                          int &line);
 };
@@ -82,7 +82,7 @@ namespace sequence_analysis {
 
   /// \brief Variable-order Markov chain
 
-  class VariableOrderMarkovChain : public stat_tool::Chain {
+  class SEQUENCE_ANALYSIS_API VariableOrderMarkovChain : public stat_tool::Chain {
 
   public :
 
@@ -164,7 +164,7 @@ namespace sequence_analysis {
 
   /// \brief Variable-order Markov chain 
 
-  class VariableOrderMarkov : public stat_tool::StatInterface , protected VariableOrderMarkovChain {
+  class SEQUENCE_ANALYSIS_API VariableOrderMarkov : public stat_tool::StatInterface , protected VariableOrderMarkovChain {
 
     friend class MarkovianSequences;
     friend class VariableOrderMarkovIterator;
@@ -328,7 +328,7 @@ namespace sequence_analysis {
 
   /// \brief Variable-order Markov chain iterator
 
-  class VariableOrderMarkovIterator {
+  class SEQUENCE_ANALYSIS_API VariableOrderMarkovIterator {
 
   private :
 
@@ -359,7 +359,7 @@ namespace sequence_analysis {
 
   /// \brief Data structure corresponding to a variable-order Markov chain
 
-  class VariableOrderMarkovChainData : public stat_tool::ChainData {
+  class SEQUENCE_ANALYSIS_API VariableOrderMarkovChainData : public stat_tool::ChainData {
 
   public :
 
@@ -374,7 +374,7 @@ namespace sequence_analysis {
 
   /// \brief Data structure corresponding to a variable-order Markov chain
 
-  class VariableOrderMarkovData : public MarkovianSequences {
+  class SEQUENCE_ANALYSIS_API VariableOrderMarkovData : public MarkovianSequences {
 
     friend class MarkovianSequences;
     friend class VariableOrderMarkov;

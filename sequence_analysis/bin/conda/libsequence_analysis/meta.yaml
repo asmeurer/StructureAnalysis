@@ -1,0 +1,22 @@
+package:
+    name: libsequence_analysis
+    version: "1.0.0"
+
+source:
+    path: ../../..
+
+build:
+    number: 0
+    
+about:
+    home: http://openalea.gforge.inria.fr/doc/vplants/sequence_analysis/doc/html/contents.html
+    license: CeCILL-C
+
+requirements:
+    build:
+        - libdev
+        - libboost
+        - libstat_tool
+    run:
+        - libboost
+        - libstat_tool

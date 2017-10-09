@@ -71,7 +71,7 @@ namespace sequence_analysis {
 
   /// \brief Self-transition probability function
 
-  class Function : public stat_tool::RegressionKernel {
+  class SEQUENCE_ANALYSIS_API Function : public stat_tool::RegressionKernel {
 
   public :
 
@@ -108,7 +108,7 @@ namespace sequence_analysis {
 
   /// \brief Nonhomogeneous Markov chain
 
-  class NonhomogeneousMarkov : public stat_tool::StatInterface , protected stat_tool::Chain {
+  class SEQUENCE_ANALYSIS_API NonhomogeneousMarkov : public stat_tool::StatInterface , protected stat_tool::Chain {
 
     friend class MarkovianSequences;
     friend class NonhomogeneousMarkovData;
@@ -195,7 +195,7 @@ namespace sequence_analysis {
 
   /// \brief Data structure corresponding to a nonhomogeneous Markov chain
 
-  class NonhomogeneousMarkovData : public MarkovianSequences {
+  class SEQUENCE_ANALYSIS_API NonhomogeneousMarkovData : public MarkovianSequences {
 
     friend class MarkovianSequences;
     friend class NonhomogeneousMarkov;

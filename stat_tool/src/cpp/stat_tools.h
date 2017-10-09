@@ -41,9 +41,31 @@
 
 
 #include <fstream>
+
+#if defined WIN32 || defined _WIN32 || defined __CYGWIN__
+  #ifdef LIBSTAT_TOOL
+    #ifdef __GNUC__
+      #define STAT_TOOL_API __attribute__ ((dllexport))
+    #else
+      #define STAT_TOOL_API __declspec(dllexport)
+    #endif
+  #else
+    #ifdef __GNUC__
+      #define STAT_TOOL_API __attribute__ ((dllimport))
+    #else
+      #define STAT_TOOL_API __declspec(dllimport)
+    #endif
+  #endif
+#else
+  #if __GNUC__ >= 4
+    #define STAT_TOOL_API __attribute__ ((visibility ("default")))
+  #else
+    #define STAT_TOOL_API
+  #endif
+#endif
+
 #include "reestimation.h"
 #include "plotable.h"
-
 
 namespace stat_tool {
 
@@ -318,7 +340,7 @@ namespace stat_tool {
 
   /// \brief Test of hypothesis
 
-  class Test {
+  class STAT_TOOL_API Test {
 
     friend std::ostream& operator<<(std::ostream &os , const Test &test)
     { return test.ascii_print(os); }
@@ -359,7 +381,7 @@ namespace stat_tool {
 
   /// \brief Class for error management
 
-  class StatError {
+  class STAT_TOOL_API StatError {
 
     friend std::ostream& operator<<(std::ostream &os , const StatError &error)
     { return error.ascii_write(os , ERROR); }
@@ -377,6 +399,7 @@ namespace stat_tool {
     StatError(int imax_nb_error = NB_ERROR);
     ~StatError();
 
+    std::string ascii_write(error_type type = ERROR) const;
     std::ostream& ascii_write(std::ostream &os , error_type type = ERROR) const;
 
     void init() { nb_error = 0; }
@@ -395,7 +418,7 @@ namespace stat_tool {
 
   /// \brief Abstract class defining a common interface
 
-  class StatInterface {
+  class STAT_TOOL_API StatInterface {
 
   public :
 
@@ -421,7 +444,7 @@ namespace stat_tool {
 
   /// \brief Discrete distribution
 
-  class Distribution {
+  class STAT_TOOL_API Distribution {
 
     friend std::ostream& operator<<(std::ostream& , const Distribution&);
 
@@ -562,7 +585,7 @@ namespace stat_tool {
 
   /// \brief Discrete parametric distribution
 
-  class DiscreteParametric : public Distribution {
+  class STAT_TOOL_API DiscreteParametric : public Distribution {
 
     friend std::ostream& operator<<(std::ostream& , const DiscreteParametric&);
 
@@ -674,7 +697,7 @@ namespace stat_tool {
 
   /// \brief Forward recurrence or sojourn time distribution
 
-  class Forward : public DiscreteParametric {
+  class STAT_TOOL_API Forward : public DiscreteParametric {
 
   public :
 
@@ -699,7 +722,7 @@ namespace stat_tool {
 
   /// \brief Frequency distribution
 
-  class FrequencyDistribution : public Reestimation<int> {
+  class STAT_TOOL_API FrequencyDistribution : public Reestimation<int> {
 
   public :
 
@@ -896,7 +919,7 @@ namespace stat_tool {
 
   /// \brief Continuous parametric distribution
 
-  class ContinuousParametric {
+  class STAT_TOOL_API ContinuousParametric {
 
 //    friend std::ostream& operator<<(std::ostream &os , const ContinuousParametric &dist)
 //    { return dist.ascii_print(os); }
@@ -982,7 +1005,7 @@ namespace stat_tool {
 
   /// \brief Histogram
 
-  class Histogram {
+  class STAT_TOOL_API Histogram {
 
   public :
 
@@ -1014,14 +1037,14 @@ namespace stat_tool {
   };
 
 
-  int column_width(int);
-  int column_width(int min_value , int max_value);
-  int column_width(double min_value , double max_value);
-  int column_width(int nb_value , const double *value , double scale = 1.);
-  char* label(const char *file_name);
+  STAT_TOOL_API int column_width(int);
+  STAT_TOOL_API int column_width(int min_value , int max_value);
+  STAT_TOOL_API int column_width(double min_value , double max_value);
+  STAT_TOOL_API int column_width(int nb_value , const double *value , double scale = 1.);
+  STAT_TOOL_API char* label(const char *file_name);
 
-  void cumul_computation(int nb_value , const double *pmass , double *pcumul);
-  int cumul_method(int nb_value , const double *cumul , double scale = 1.);
+  STAT_TOOL_API void cumul_computation(int nb_value , const double *pmass , double *pcumul);
+  STAT_TOOL_API int cumul_method(int nb_value , const double *cumul , double scale = 1.);
 
 
 };  // namespace stat_tool

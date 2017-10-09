@@ -75,7 +75,7 @@ namespace sequence_analysis {
 
   /// \brief Semi-Markov chain
 
-  class SemiMarkovChain : public stat_tool::Chain {
+  class SEQUENCE_ANALYSIS_API SemiMarkovChain : public stat_tool::Chain {
 
   public :
 
@@ -114,7 +114,7 @@ namespace sequence_analysis {
 
   /// \brief Semi-Markov chain
 
-  class SemiMarkov : public stat_tool::StatInterface , protected SemiMarkovChain {
+  class SEQUENCE_ANALYSIS_API SemiMarkov : public stat_tool::StatInterface , protected SemiMarkovChain {
 
     friend class MarkovianSequences;
     friend class SemiMarkovIterator;
@@ -257,7 +257,7 @@ namespace sequence_analysis {
 
   /// \brief Semi-Markov chain iterator for asynchronous simulation
 
-  class SemiMarkovIterator {
+  class SEQUENCE_ANALYSIS_API SemiMarkovIterator {
 
   private :
 
@@ -291,7 +291,7 @@ namespace sequence_analysis {
 
   /// \brief Data structure corresponding to a semi-Markov chain
 
-  class SemiMarkovData : public MarkovianSequences {
+  class SEQUENCE_ANALYSIS_API SemiMarkovData : public MarkovianSequences {
 
     friend class MarkovianSequences;
     friend class SemiMarkov;

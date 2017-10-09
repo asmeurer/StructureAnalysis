@@ -76,7 +76,7 @@ namespace sequence_analysis {
 
   /// \brief Hidden semi-Markov chain
 
-  class HiddenSemiMarkov : public SemiMarkov {
+  class SEQUENCE_ANALYSIS_API HiddenSemiMarkov : public SemiMarkov {
 
     friend class MarkovianSequences;
 

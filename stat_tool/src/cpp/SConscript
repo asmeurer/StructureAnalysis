@@ -1,50 +1,36 @@
 # -*-python-*-
 
-import os
-bn = os.path.basename
+from SCons.Errors import EnvironmentError
 
-Import( "env" )
+try:
+    Import("env")
 
-lib_env = env.Clone()
+    cppenv = env.Clone(tools = ['cpp'])
 
-#lib_env.EnableQt4Modules(['QtCore','QtOpenGL', 'QtGui'])
+    cppenv.AppendUnique(CPPDEFINES = ['LIBSTAT_TOOL'])
 
-# Import/Export symbols for windows
-if lib_env['compiler'] == 'mingw':
-    LINKFLAGS=["-enable-stdcall-fixup",
-               "-enable-auto-import",
-               "-enable-runtime-pseudo-reloc",
-               "-s"]
-    lib_env.AppendUnique(LINKFLAGS=LINKFLAGS)
+    exclude = """
+    """.split()
 
-includes= lib_env.ALEAGlob('*.h')
-includes += lib_env.ALEAGlob('*.hpp')
-sources = lib_env.ALEAGlob('*.cpp')
+    sources = [source for source in cppenv.Glob('*.h*') if not source.name in exclude]
+    targets = cppenv.CppDev("stat_tool", sources)
+    Alias("cpp-dev", targets)
+    Alias("cpp", targets)
+    Alias("install", targets)
 
+    exclude = """
+    """.split()
 
-# files to exclude from sources
-excludes = Split( """
-""")
-
-for f in excludes:
-    for cpp in sources:
-	if f in cpp:
-            sources.remove(cpp)
-	    break
-
-# Add defines to export symbols
-lib_env.AppendUnique(CPPDEFINES=['MESSAGE'])
-#lib_env.AppendUnique(LIBS=['vptool'])
-
-if lib_env['DEBUG']:
-    lib_env.Append(CPPDEFINES= ['DEBUG'])
-    lib_env.AppendUnique(LIBS=['efence'])
-    CPPFLAGS=["-g"]
-    lib_env.AppendUnique(CPPFLAGS=CPPFLAGS)
-    if '-DNDEBUG' in lib_env._dict['CCFLAGS']:
-        lib_env._dict['CCFLAGS'] = []
-    if '-DNDEBUG' in lib_env._dict['CXXFLAGS']:
-        lib_env._dict['CXXFLAGS'] = []
-
-inc = lib_env.ALEAIncludes( "stat_tool", includes )
-lib = lib_env.ALEALibrary( "vpstat_tool", sources )
+    sources = [source for source in cppenv.Glob('*.cpp') if not source.name in exclude]
+    targets = cppenv.CppLib("stat_tool", sources)
+    Alias("cpp-lib", targets)
+    Alias("cpp", targets)
+    Alias("install", targets)
+except EnvironmentError:
+    Alias("cpp-dev", [])
+    Alias("cpp-lib", [])
+    Alias("cpp", [])
+    Alias("install", [])
+    pass
+except Exception:
+    raise

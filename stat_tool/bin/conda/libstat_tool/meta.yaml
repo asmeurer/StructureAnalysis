@@ -1,0 +1,20 @@
+package:
+    name: libstat_tool
+    version: "1.0.0"
+
+source:
+    path: ../../..
+
+build:
+    number: 0
+    
+about:
+    home: http://openalea.gforge.inria.fr/doc/vplants/stat_tool/doc/html/contents.html
+    license: CeCILL-C
+
+requirements:
+    build:
+        - libdev
+        - libboost
+    run:
+        - libboost
