@@ -14,7 +14,8 @@ about:
 
 requirements:
     build:
-        - libdev
+        - libtoolchain
         - libboost
     run:
+        - libruntime
         - libboost

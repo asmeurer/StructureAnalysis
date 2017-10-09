@@ -14,13 +14,13 @@ about:
 
 requirements:
   build:
-    - libdev
-    - python-dev
+    - libtoolchain
+    - python-toolchain
     - libboost
     - libsequence_analysis
     - python
   run:
-    - librun
+    - libruntime
     - libboost
     - libsequence_analysis
     - python
