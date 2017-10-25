@@ -3,8 +3,8 @@ from functools import wraps
 from stat_tool import _stat_tool
 from stat_tool import __stat_tool
 
-import _sequence_analysis
-import __sequence_analysis
+from . import _sequence_analysis
+from . import __sequence_analysis
 
 def wrapper(f):
     @wraps(f)
