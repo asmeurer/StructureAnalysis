@@ -1,4 +1,4 @@
-from sequence_analysis import __sequence_analysis
+from . import __sequence_analysis
 from stat_tool.mplotlib import get_plotables
 
 def load_ipython_extension(ipython):
