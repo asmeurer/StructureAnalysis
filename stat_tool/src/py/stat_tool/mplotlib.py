@@ -1,8 +1,8 @@
-from stat_tool import __stat_tool
+from . import __stat_tool
 from matplotlib import pyplot as plt
 from functools import wraps
 import numpy as np
-from types import ModuleType, ClassType
+from types import ModuleType
 
 linestyles = ('-', '--', ':', '.')
 pointstyles = ('o', '^', 'x', '+', 's', 'v', '>', '<')
@@ -122,7 +122,7 @@ def wrapper(f):
                             fig.hold(True)
                 #        break # nothing else to be done in principle
                     else:
-                        print "Warning. Empty data."
+                        print("Warning. Empty data.")
                         return
                 else:
                     pass
@@ -177,7 +177,7 @@ def wrapper(f):
                                     new_legends.insert(index_begin_line_collection, current_legend)
                                     index_begin_line_collection += 1
                             axes.legend(new_legends, **kwds)
-            except Exception, e:
+            except Exception as e:
                 import warnings
                 warnings.warn('legend failed:'+str(e))
 
