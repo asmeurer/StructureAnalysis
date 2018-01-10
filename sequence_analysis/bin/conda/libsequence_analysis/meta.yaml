@@ -15,9 +15,8 @@ about:
 requirements:
     build:
         - libtoolchain
-        - libboost
+        - libboost_core-dev
         - libstat_tool
     run:
-        - libruntime
         - libboost
         - libstat_tool

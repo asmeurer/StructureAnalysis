@@ -16,12 +16,10 @@ requirements:
   build:
     - libtoolchain
     - python-toolchain
-    - libboost
+    - libboost_python-dev
     - libstat_tool
     - python
   run:
-    - libruntime
-    - libboost
     - libstat_tool
     - python
     - multipledispatch

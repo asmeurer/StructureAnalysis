@@ -16,12 +16,10 @@ requirements:
   build:
     - libtoolchain
     - python-toolchain
-    - libboost
+    - libboost_python-dev
     - libsequence_analysis
     - python
   run:
-    - libruntime
-    - libboost
     - libsequence_analysis
     - python
-    - python-stat_tool
+    - multipledispatch
