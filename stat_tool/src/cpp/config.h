@@ -1,40 +1,21 @@
-#if defined(_WIN32)
-
-#if defined(VPTOOLS_NODLL)
-#undef STAT_TOOL_MAKEDLL
-#undef STAT_TOOL_DLL
+#if defined WIN32 || defined _WIN32 || defined __CYGWIN__
+  #ifdef STAT_TOOL_MAKEDLL
+    #ifdef __GNUC__
+      #define STAT_TOOL_API __attribute__ ((dllexport))
+    #else
+      #define STAT_TOOL_API __declspec(dllexport)
+    #endif
+  #else
+    #ifdef __GNUC__
+      #define STAT_TOOL_API __attribute__ ((dllimport))
+    #else
+      #define STAT_TOOL_API __declspec(dllimport)
+    #endif
+  #endif
 #else
-#ifndef STAT_TOOL_DLL
-#define STAT_TOOL_DLL
-#endif
-#endif
-
-#if defined(STAT_TOOL_MAKEDLL)
-#ifndef STAT_TOOL_DLL
-#define STAT_TOOL_DLL
-#endif
-#endif
-
-#ifdef STAT_TOOL_DLL
-
-#ifdef STAT_TOOL_MAKEDLL             /* create a vptool DLL library */
-#define STAT_TOOL_API  __declspec(dllexport)
-#undef VPTOOLS_FWDEF
-#else                                                   /* use a vptool DLL library */
-#define STAT_TOOL_API  __declspec(dllimport)
-#endif
-
-#define STAT_TOOL_TEMPLATE_API(T) template class STAT_TOOL_API T;
-#endif
-
-#else // OS != _WIN32
-
-#undef STAT_TOOL_MAKEDLL             /* ignore these for other platforms */
-#undef STAT_TOOL_DLL
-
-#endif
-
-#ifndef STAT_TOOL_API
-#define STAT_TOOL_API
-#define STAT_TOOL_TEMPLATE_API(T) 
+  #if __GNUC__ >= 4
+    #define STAT_TOOL_API __attribute__ ((visibility ("default")))
+  #else
+    #define STAT_TOOL_API
+  #endif
 #endif

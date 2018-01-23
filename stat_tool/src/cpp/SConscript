@@ -7,7 +7,7 @@ try:
 
     cppenv = env.Clone(tools = ['cpp'])
 
-    cppenv.AppendUnique(CPPDEFINES = ['LIBSTAT_TOOL'])
+    cppenv.AppendUnique(CPPDEFINES = ['STAT_TOOL_MAKEDLL'])
 
     exclude = """
     """.split()
