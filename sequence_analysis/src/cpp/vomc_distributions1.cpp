@@ -37,6 +37,7 @@
 
 
 #include <sstream>
+#include <fstream>
 
 #include "variable_order_markov.h"
 #include "sequence_label.h"

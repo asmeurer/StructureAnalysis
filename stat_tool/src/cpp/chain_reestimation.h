@@ -39,7 +39,7 @@
 #ifndef CHAIN_REESTIMATION_H
 #define CHAIN_REESTIMATION_H
 
-
+#include "stat_tools.h"
 
 namespace stat_tool {
 

@@ -39,6 +39,7 @@
 #include <math.h>
 #include <sstream>
 #include <iomanip>
+#include <fstream>
 
 #include <boost/math/special_functions/gamma.hpp>
 #include <boost/math/special_functions/binomial.hpp>

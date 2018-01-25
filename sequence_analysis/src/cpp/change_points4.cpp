@@ -41,6 +41,7 @@
 #include <string>
 #include <sstream>
 #include <iomanip>
+#include <fstream>
 
 #include "sequences.h"
 #include "sequence_label.h"

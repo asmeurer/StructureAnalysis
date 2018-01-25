@@ -39,6 +39,7 @@
 #include "stat_tool/stat_label.h"
 
 #include <boost/tokenizer.hpp>
+#include <fstream>
 
 #include "sequences.h"
 #include "sequence_label.h"

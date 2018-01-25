@@ -37,6 +37,7 @@
 
 
 #include <string>
+#include <fstream>
 
 #include <boost/algorithm/string/trim.hpp>
 #include <boost/algorithm/string/classification.hpp>

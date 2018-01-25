@@ -24,7 +24,10 @@ __all__ = []
 from functools import wraps
 
 from . import _stat_tool
-from .__stat_tool.stat_tool import SinglePlot, MultiPlot, MultiPlotSet
+from .__stat_tool.stat_tool import SinglePlot, MultiPlot, MultiPlotSet, Range
+
+Range.first = property(Range.get_first)
+Range.second = property(Range.get_second)
 
 class Point(object):
 

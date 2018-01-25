@@ -68,7 +68,14 @@ namespace stat_tool {
 
 
   typedef std::pair<float, float> PlotPoint;
-  typedef std::pair<float, float> Range;
+  // typedef std::pair<float, float> Range;
+  struct Range : protected std::pair<float, float>
+  { 
+      using std::pair<float, float>::pair;
+      double get_first() const { return this->first; };
+      double get_second() const { return this->second; };
+  };
+
   typedef std::pair<PlotPoint, string> Label;
 
 

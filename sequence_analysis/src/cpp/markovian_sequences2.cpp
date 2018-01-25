@@ -40,6 +40,7 @@
 // #include <vector>
 #include <sstream>
 #include <iomanip>
+#include <fstream>
 
 #include <boost/math/distributions/normal.hpp>
 

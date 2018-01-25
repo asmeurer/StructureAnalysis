@@ -41,6 +41,7 @@
 #include <string>
 #include <sstream>
 #include <iomanip>
+#include <fstream>
 
 #include "stat_tool/stat_label.h"
 
