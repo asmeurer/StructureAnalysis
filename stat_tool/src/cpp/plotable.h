@@ -197,9 +197,9 @@ namespace stat_tool {
     std::vector<int> variable;
     std::vector< process_distribution > viewpoint;
 
-    TemplateMultiPlotSet(int size = 1);
+    MultiPlotSet(int size = 1);
 
-    TemplateMultiPlotSet(int size, int inb_variable);
+    MultiPlotSet(int size, int inb_variable);
 
     MultiPlot& operator[](int index);
 
