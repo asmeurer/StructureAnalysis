@@ -7,6 +7,8 @@ env = Environment(tools = ['toolchain'])
 env.AppendUnique(LIBS = [])
 env.AppendUnique(CPPDEFINES=['MESSAGE'])
 
+if env['SYSTEM'] == 'linux':
+    env.AppendUnique(CCFLAGS=['-Wno-deprecated-declarations'])
 VariantDir(os.path.join('build', 'src'), 'src')
 
 SConscript(os.path.join('build', 'src', 'cpp', 'SConscript'), exports="env")
