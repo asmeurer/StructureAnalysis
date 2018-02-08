@@ -46,6 +46,8 @@
 #include <iterator>
 #include <string>
 
+#include "config.h"
+
 using std::string;
 
 namespace stat_tool {
