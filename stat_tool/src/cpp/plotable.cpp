@@ -121,4 +121,26 @@ MultiPlotSet::MultiPlotSet(int size, int inb_variable)
 }
 */
 
+MultiPlotSet::MultiPlotSet(int size)
+:multiplots(size)
+{};
+
+MultiPlotSet::MultiPlotSet(int size, int inb_variable)
+:multiplots(size), variable_nb_viewpoint(inb_variable) , variable(size), viewpoint(size)
+{
+  nb_variable = inb_variable;
+}
+
+MultiPlot& MultiPlotSet::operator[](int index)
+{ return multiplots[index]; };
+
+int MultiPlotSet::size()
+{ return multiplots.size(); };
+
+std::vector<MultiPlot>::const_iterator MultiPlotSet::begin()
+{ return multiplots.begin(); };
+
+std::vector<MultiPlot>::const_iterator MultiPlotSet::end()
+{ return multiplots.end(); };
+
 };  // namespace stat_tool

@@ -184,7 +184,7 @@ namespace stat_tool {
 
   // Class MultiPlotSet: list of MultiPlot
 
-  template<typename Type> class TemplateMultiPlotSet
+  class MultiPlotSet
   {
     std::vector<MultiPlot> multiplots;
 
@@ -201,20 +201,16 @@ namespace stat_tool {
 
     TemplateMultiPlotSet(int size, int inb_variable);
 
-    MultiPlot& operator[](int index)
-    { return multiplots[index]; };
+    MultiPlot& operator[](int index);
 
-    int size()
-    { return multiplots.size(); };
+    int size();
 
-    std::vector<MultiPlot>::const_iterator begin()
-    { return multiplots.begin(); };
+    std::vector<MultiPlot>::const_iterator begin();
 
-    std::vector<MultiPlot>::const_iterator end()
-    { return multiplots.end(); };
+    std::vector<MultiPlot>::const_iterator end();
   };
 
-  typedef TemplateMultiPlotSet<process_distribution> MultiPlotSet;
+  // typedef TemplateMultiPlotSet<process_distribution> MultiPlotSet;
 
 #include "plotable.hpp"
 

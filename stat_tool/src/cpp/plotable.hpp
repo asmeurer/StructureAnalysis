@@ -37,14 +37,14 @@
 #ifndef PLOTABLE_TCC
 #define PLOTABLE_TCC
 
-template <typename type> TemplateMultiPlotSet<type>::TemplateMultiPlotSet(int size)
-:multiplots(size)
-{};
+// template <typename type> TemplateMultiPlotSet<type>::TemplateMultiPlotSet(int size)
+// :multiplots(size)
+// {};
 
-template <typename type> TemplateMultiPlotSet<type>::TemplateMultiPlotSet(int size, int inb_variable)
-:multiplots(size), variable_nb_viewpoint(inb_variable) , variable(size), viewpoint(size)
-{
-  nb_variable = inb_variable;
-}
+// template <typename type> TemplateMultiPlotSet<type>::TemplateMultiPlotSet(int size, int inb_variable)
+// :multiplots(size), variable_nb_viewpoint(inb_variable) , variable(size), viewpoint(size)
+// {
+//   nb_variable = inb_variable;
+// }
 
 #endif
