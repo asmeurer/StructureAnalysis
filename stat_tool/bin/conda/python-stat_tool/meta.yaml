@@ -23,6 +23,7 @@ requirements:
     - libstat_tool
     - python
     - multipledispatch
+    - libboost_python-dev
 
 test:
   imports:
